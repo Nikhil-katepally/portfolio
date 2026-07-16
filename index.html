@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SVG Favicon with Initials 'NK' -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231e293b'/%3E%3Ctext x='50%25' y='57%25' font-family='Sora, sans-serif' font-weight='800' font-size='40' fill='%23f97316' dominant-baseline='middle' text-anchor='middle'%3ENK%3C/text%3E%3C/svg%3E">
+    <title>Nikhil Katepally | Portfolio</title>
+    
+    <!-- Google Fonts: Sora (Headings) & IBM Plex Sans (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"IBM Plex Sans"', 'sans-serif'],
+                        heading: ['Sora', 'sans-serif'],
+                    },
+                    colors: {
+                        accent: {
+                            50: '#fff7ed',
+                            100: '#ffedd5',
+                            200: '#fed7aa',
+                            300: '#fdba74',
+                            400: '#fb923c',
+                            500: '#f97316', // Burnt Orange Seed
+                            600: '#ea580c',
+                            700: '#c2410c',
+                            800: '#9a3412',
+                            900: '#7c2d12',
+                        },
+                        base: {
+                            950: '#0b0f19',
+                            900: '#111827',
+                            800: '#1f2937',
+                            700: '#374151',
+                            300: '#d1d5db',
+                            100: '#f3f4f6',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar styling for seamless horizontal flow */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        /* Smooth transitions */
+        .transition-all-custom {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+</head>
+<body class="bg-base-950 text-base-100 font-sans overflow-x-hidden selection:bg-accent-500 selection:text-white">
+
+    <!-- Desktop Side/Top Floating Nav (Synchronized indicator) -->
+    <header class="fixed top-0 left-0 w-full z-50 px-6 py-4 flex justify-between items-center bg-gradient-to-b from-base-950 to-transparent">
+        <a href="#hero" class="font-heading font-extrabold text-2xl tracking-wider text-white flex items-center gap-2">
+            <span class="text-accent-500">&lt;</span>NIKHIL<span class="text-accent-500">/&gt;</span>
+        </a>
+        
+        <!-- Desktop Nav Items (Becomes vertical anchors on mobile, panel triggers on desktop) -->
+        <nav class="hidden md:flex items-center gap-8 bg-base-900/80 backdrop-blur-md px-6 py-2.5 rounded-full border border-base-800">
+            <button onclick="scrollToSection(0)" class="nav-dot text-sm font-medium hover:text-accent-400 transition-colors text-accent-500" data-index="0">About</button>
+            <button onclick="scrollToSection(1)" class="nav-dot text-sm font-medium hover:text-accent-400 transition-colors text-base-300" data-index="1">Skills</button>
+            <button onclick="scrollToSection(2)" class="nav-dot text-sm font-medium hover:text-accent-400 transition-colors text-base-300" data-index="2">Projects</button>
+            <button onclick="scrollToSection(3)" class="nav-dot text-sm font-medium hover:text-accent-400 transition-colors text-base-300" data-index="3">Leadership</button>
+            <button onclick="scrollToSection(4)" class="nav-dot text-sm font-medium hover:text-accent-400 transition-colors text-base-300" data-index="4">Education & Contact</button>
+        </nav>
+
+        <!-- Quick Social Connect -->
+        <div class="flex items-center gap-4">
+            <a href="mailto:23r11a6771@gcet.edu.in" class="bg-accent-600 hover:bg-accent-500 text-white font-medium px-4 py-2 rounded-full text-xs md:text-sm transition-all shadow-lg shadow-accent-600/20 flex items-center gap-1.5">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                <span>Hire Me</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- On desktop: horizontal snap scroll container. On mobile: standard vertical block structure -->
+    <main id="scroll-container" class="md:flex md:overflow-x-auto md:snap-x md:snap-mandatory md:h-screen w-full no-scrollbar">
+
+        <!-- ==================== SECTION 1: HERO / ABOUT ==================== -->
+        <section id="section-0" class="section-panel w-full md:w-screen md:h-screen md:flex-shrink-0 md:snap-start flex flex-col justify-center items-center px-6 py-24 md:py-0 relative overflow-hidden">
+            <!-- Ambient Background Glow -->
+            <div class="absolute -top-40 -left-40 w-96 h-96 bg-accent-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+            <div class="absolute bottom-10 right-10 w-96 h-96 bg-accent-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+            
+            <div class="max-w-4xl mx-auto text-center z-10 space-y-6">
+                <h1 class="text-4xl md:text-7xl font-heading font-extrabold tracking-tight leading-tight text-white">
+                    Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-400 to-accent-600">Nikhil Katepally</span>
+                </h1>
+                
+                <p class="text-xl md:text-2xl font-medium text-base-300">
+                    Aspiring Software Engineer &amp; Backend Developer
+                </p>
+                
+                <p class="text-base md:text-lg text-base-300 max-w-2xl mx-auto leading-relaxed font-light">
+                    Passionate about building highly scalable backend architectures, writing secure application pipelines, and optimizing complex database layers. Specialized in Java, Spring Boot, and robust data structures.
+                </p>
+
+                <!-- Responsive Quick Actions -->
+                <div class="flex flex-wrap justify-center gap-4 pt-4">
+                    <button onclick="scrollToSection(1)" class="hidden md:flex items-center gap-2 text-base-300 hover:text-white border border-base-800 hover:border-accent-500 px-6 py-3 rounded-full transition-all group">
+                        <span>Explore Portfolio</span>
+                        <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                    </button>
+                    <a href="https://github.com/Nikhil-katepally" target="_blank" class="flex items-center gap-2 bg-base-900 hover:bg-base-800 border border-base-800 px-6 py-3 rounded-full text-white font-medium transition-all">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.269c0-5.533-4.477-10.016-10-10.016z" clip-rule="evenodd"/></svg>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/nikhilkatepally" target="_blank" class="flex items-center gap-2 bg-base-900 hover:bg-base-800 border border-base-800 px-6 py-3 rounded-full text-white font-medium transition-all">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        <span>LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Indicator showing scroll instruction -->
+            <div class="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 text-base-500 animate-bounce">
+                <span class="text-xs uppercase tracking-widest">Scroll or Use Arrow Keys</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </div>
+        </section>
+
+        <!-- ==================== SECTION 2: TECHNICAL SKILLS ==================== -->
+        <section id="section-1" class="section-panel w-full md:w-screen md:h-screen md:flex-shrink-0 md:snap-start flex flex-col justify-center px-6 py-20 md:py-0 relative bg-base-900/30">
+            <div class="max-w-5xl mx-auto w-full space-y-10">
+                <div class="text-center md:text-left">
+                    <h2 class="text-3xl md:text-5xl font-heading font-extrabold text-white">
+                        Technical <span class="text-accent-500">Skills</span>
+                    </h2>
+                    <p class="text-base-300 mt-2">Core expertise and toolkits honed through academic projects and engineering development.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    
+                    <!-- Languages & Databases Block -->
+                    <div class="bg-base-900/50 border border-base-800 p-6 rounded-2xl relative overflow-hidden group hover:border-accent-500/50 transition-all duration-300">
+                        <div class="absolute -right-10 -bottom-10 w-32 h-32 bg-accent-500/5 rounded-full blur-2xl group-hover:bg-accent-500/10 transition-all"></div>
+                        <h3 class="text-lg font-heading font-bold text-accent-400 mb-4 flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+                            Languages &amp; Database
+                        </h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1.5 bg-base-950 border border-base-800 text-sm text-base-100 rounded-lg hover:border-accent-500 transition-colors">Java</span>
+                            <span class="px-3 py-1.5 bg-base-950 border border-base-800 text-sm text-base-100 rounded-lg hover:border-accent-500 transition-colors">C</span>
+                            <span class="px-3 py-1.5 bg-base-950 border border-base-800 text-sm text-base-100 rounded-lg hover:border-accent-500 transition-colors">SQL</span>
+                            <span class="px-3 py-1.5 bg-base-950 border border-base-800 text-sm text-base-100 rounded-lg hover:border-accent-500 transition-colors">MySQL</span>
+                        </div>
+                    </div>
+
+                    <!-- Backend Frameworks Block -->
+                    <div class="bg-base-900/50 border border-base-800 p-6 rounded-2xl relative overflow-hidden group hover:border-accent-500/50 transition-all duration-300">
+                        <div class="absolute -right-10 -bottom-10 w-32 h-32 bg-accent-500/5 rounded-full blur-2xl group-hover:bg-accent-500/10 transition-all"></div>
+                        <h3 class="text-lg font-heading font-bold text-accent-400 mb-4 flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+                            Backend &amp; Security
+                        </h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1.5 bg-base-950 border border-base-800 text-sm text-base-100 rounded-lg hover:border-accent-500 transition-colors">Spring Boot</span>
+                            <span class="px-3 py-1.5 bg-base-950 border border-base-800 text-sm text-base-100 rounded-lg hover:border-accent-500 transition-colors">Spring Security</span>
+                            <span class="px-3 py-1.5 bg-base-950 border border-base-800 text-sm text-base-100 rounded-lg hover:border-accent-500 transition-colors">Spring Data JPA</span>
+                            <span class="px-3 py-1.5 bg-base-950 border border-base-800 text-sm text-base-100 rounded-lg hover:border-accent-500 transition-colors">Hibernate</span>
+                            <span class="px-3 py-1.5 bg-base-950 border border-base-800 text-sm text-base-100 rounded-lg hover:border-accent-500 transition-colors">REST APIs</span>
+                            <span class="px-3 py-1.5 bg-base-950 border border-base-800 text-sm text-base-100 rounded-lg hover:border-accent-500 transition-colors">JWT Auth</span>
+                            <span class="px-3 py-1.5 bg-base-950 border border-base-800 text-sm text-base-100 rounded-lg hover:border-accent-500 transition-colors">WebSockets</span>
+                        </div>
+                    </div>
+
+                    <!-- Core CS, Tools & Web Block -->
+                    <div class="bg-base-900/50 border border-base-800 p-6 rounded-2xl relative overflow-hidden group hover:border-accent-500/50 transition-all duration-300">
+                        <div class="absolute -right-10 -bottom-10 w-32 h-32 bg-accent-500/5 rounded-full blur-2xl group-hover:bg-accent-500/10 transition-all"></div>
+                        <h3 class="text-lg font-heading font-bold text-accent-400 mb-4 flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
+                            Core CS &amp; Tooling
+                        </h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1.5 bg-base-950 border border-base-800 text-sm text-base-100 rounded-lg hover:border-accent-500 transition-colors">DSA</span>
+                            <span class="px-3 py-1.5 bg-base-950 border border-base-800 text-sm text-base-100 rounded-lg hover:border-accent-500 transition-colors">OOPs</span>
+                            <span class="px-3 py-1.5 bg-base-950 border border-base-800 text-sm text-base-100 rounded-lg hover:border-accent-500 transition-colors">OS &amp; DBMS</span>
+                            <span class="px-3 py-1.5 bg-base-950 border border-base-800 text-sm text-base-100 rounded-lg hover:border-accent-500 transition-colors">Git/GitHub</span>
+                            <span class="px-3 py-1.5 bg-base-950 border border-base-800 text-sm text-base-100 rounded-lg hover:border-accent-500 transition-colors">Maven</span>
+                            <span class="px-3 py-1.5 bg-base-950 border border-base-800 text-sm text-base-100 rounded-lg hover:border-accent-500 transition-colors">Postman</span>
+                            <span class="px-3 py-1.5 bg-base-950 border border-base-800 text-sm text-base-100 rounded-lg hover:border-accent-500 transition-colors">HTML/CSS/JS</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SECTION 3: PROJECTS ==================== -->
+        <section id="section-2" class="section-panel w-full md:w-screen md:h-screen md:flex-shrink-0 md:snap-start flex flex-col justify-center px-6 py-20 md:py-0 relative">
+            <div class="max-w-5xl mx-auto w-full space-y-8">
+                <div class="text-center md:text-left">
+                    <h2 class="text-3xl md:text-5xl font-heading font-extrabold text-white">
+                        Featured <span class="text-accent-500">Projects</span>
+                    </h2>
+                    <p class="text-base-300 mt-2">Scalable applications solved using robust logic design patterns.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    
+                    <!-- Project 1: Secure Chat Application -->
+                    <div class="bg-base-900/40 border border-base-800 rounded-2xl p-6 flex flex-col justify-between hover:border-accent-500/40 hover:-translate-y-1 transition-all duration-300 relative group">
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-start">
+                                <span class="text-xs font-semibold uppercase tracking-wider text-accent-500">Real-time / Security</span>
+                                <span class="text-xs text-base-300 bg-base-950 px-2.5 py-1 rounded-full border border-base-800">2024</span>
+                            </div>
+                            <h3 class="text-xl md:text-2xl font-heading font-extrabold text-white group-hover:text-accent-400 transition-colors">
+                                Secure Real-Time Chat App
+                            </h3>
+                            <p class="text-sm md:text-base text-base-300 leading-relaxed font-light">
+                                Developed an instant bidirectional communication portal. Implemented strict JWT filters alongside custom Security Filter Chains, ensuring credentials storage is hashed safely via BCrypt in MySQL.
+                            </p>
+                            <div class="flex flex-wrap gap-2 pt-2">
+                                <span class="text-xs bg-base-950 text-accent-400 px-2.5 py-1 rounded-md border border-base-800 font-mono">Java</span>
+                                <span class="text-xs bg-base-950 text-accent-400 px-2.5 py-1 rounded-md border border-base-800 font-mono">Spring Boot</span>
+                                <span class="text-xs bg-base-950 text-accent-400 px-2.5 py-1 rounded-md border border-base-800 font-mono">WebSockets</span>
+                                <span class="text-xs bg-base-950 text-accent-400 px-2.5 py-1 rounded-md border border-base-800 font-mono">MySQL</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 pt-6 border-t border-base-800/60 mt-6">
+                            <a href="https://github.com/Nikhil-katepally" target="_blank" class="flex items-center gap-1.5 text-xs font-medium text-base-100 hover:text-accent-400 transition-colors">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.269c0-5.533-4.477-10.016-10-10.016z" clip-rule="evenodd"/></svg>
+                                Code Repository
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: School Management System -->
+                    <div class="bg-base-900/40 border border-base-800 rounded-2xl p-6 flex flex-col justify-between hover:border-accent-500/40 hover:-translate-y-1 transition-all duration-300 relative group">
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-start">
+                                <span class="text-xs font-semibold uppercase tracking-wider text-accent-500">System Architecture</span>
+                                <span class="text-xs text-base-300 bg-base-950 px-2.5 py-1 rounded-full border border-base-800">2023</span>
+                            </div>
+                            <h3 class="text-xl md:text-2xl font-heading font-extrabold text-white group-hover:text-accent-400 transition-colors">
+                                School Management System
+                            </h3>
+                            <p class="text-sm md:text-base text-base-300 leading-relaxed font-light">
+                                Built an optimized console-oriented school flow architecture. Leveraged raw linked-lists structure with pointer modifications and dynamic allocation to process search, update, fee allocations and student registration flawlessly.
+                            </p>
+                            <div class="flex flex-wrap gap-2 pt-2">
+                                <span class="text-xs bg-base-950 text-accent-400 px-2.5 py-1 rounded-md border border-base-800 font-mono">C Language</span>
+                                <span class="text-xs bg-base-950 text-accent-400 px-2.5 py-1 rounded-md border border-base-800 font-mono">Linked Lists</span>
+                                <span class="text-xs bg-base-950 text-accent-400 px-2.5 py-1 rounded-md border border-base-800 font-mono">Memory Allocation</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 pt-6 border-t border-base-800/60 mt-6">
+                            <a href="https://github.com/Nikhil-katepally" target="_blank" class="flex items-center gap-1.5 text-xs font-medium text-base-100 hover:text-accent-400 transition-colors">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.269c0-5.533-4.477-10.016-10-10.016z" clip-rule="evenodd"/></svg>
+                                Code Repository
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SECTION 4: LEADERSHIP EXPERIENCE ==================== -->
+        <section id="section-3" class="section-panel w-full md:w-screen md:h-screen md:flex-shrink-0 md:snap-start flex flex-col justify-center px-6 py-20 md:py-0 relative bg-base-900/30">
+            <div class="max-w-4xl mx-auto w-full space-y-8">
+                <div class="text-center md:text-left">
+                    <h2 class="text-3xl md:text-5xl font-heading font-extrabold text-white">
+                        Leadership &amp; <span class="text-accent-500">Speaking</span>
+                    </h2>
+                    <p class="text-base-300 mt-2">Active ecosystem participant teaching core concepts &amp; mentoring fellow developers.</p>
+                </div>
+
+                <!-- WebXR Workshop Feature Card -->
+                <div class="bg-gradient-to-br from-base-900 to-base-950 border border-base-800 p-8 rounded-3xl relative overflow-hidden group">
+                    <div class="absolute -right-20 -top-20 w-80 h-80 bg-accent-500/10 rounded-full blur-[100px] pointer-events-none"></div>
+                    
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-base-800">
+                        <div>
+                            <span class="inline-block px-3 py-1 bg-accent-500/10 border border-accent-500/20 rounded-md text-xs font-semibold text-accent-400 mb-2">Guest Lecturer</span>
+                            <h3 class="text-2xl font-heading font-bold text-white">WebXR &amp; Three.js Workshop</h3>
+                        </div>
+                        <div class="text-left md:text-right">
+                            <span class="text-accent-500 font-semibold block text-lg">Oct 2025</span>
+                            <span class="text-xs text-base-300">Geethanjali College of Engg</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-6 text-sm">
+                        <ul class="space-y-4 text-base-300">
+                            <li class="flex items-start gap-3">
+                                <span class="text-accent-500 text-lg mt-0.5">•</span>
+                                <span>Delivered a comprehensive 2.5-hour technical workshop covering Virtual Reality and immersive concepts on the modern web platform.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-accent-500 text-lg mt-0.5">•</span>
+                                <span>Guided a total of 50+ workshop attendees directly on setting up robust Three.js viewports.</span>
+                            </li>
+                        </ul>
+                        <ul class="space-y-4 text-base-300">
+                            <li class="flex items-start gap-3">
+                                <span class="text-accent-500 text-lg mt-0.5">•</span>
+                                <span>Led live hands-on sessions showing how to render and animate complex lighting pipelines and modular 3D cubes.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-accent-500 text-lg mt-0.5">•</span>
+                                <span>Collaborated directly alongside administrative teams on curricula, setup pipelines, and system environments.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SECTION 5: EDUCATION & PROFILES ==================== -->
+        <section id="section-4" class="section-panel w-full md:w-screen md:h-screen md:flex-shrink-0 md:snap-start flex flex-col justify-center px-6 py-20 md:py-0 relative">
+            <div class="max-w-5xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                
+                <!-- Left: Education -->
+                <div class="space-y-6">
+                    <div>
+                        <h2 class="text-3xl md:text-5xl font-heading font-extrabold text-white">
+                            Education
+                        </h2>
+                        <p class="text-base-300 mt-2">Academic background &amp; university details.</p>
+                    </div>
+
+                    <div class="bg-base-900/50 border border-base-800 p-6 rounded-2xl space-y-4 relative overflow-hidden">
+                        <div class="absolute -right-16 -bottom-16 w-48 h-48 bg-accent-500/5 rounded-full blur-2xl"></div>
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <span class="text-xs text-accent-500 font-semibold uppercase tracking-widest">B.Tech (CSE - Data Science)</span>
+                                <h3 class="text-lg md:text-xl font-heading font-bold text-white mt-1">Geethanjali College of Engineering &amp; Technology</h3>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center text-sm text-base-300 pt-2 border-t border-base-800/60">
+                            <span>Graduation: 2027</span>
+                            <span class="bg-accent-600/10 border border-accent-500/20 text-accent-400 px-3 py-1 rounded-full font-semibold">CGPA: 8.04 / 10</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Profiles & Contact -->
+                <div class="space-y-6">
+                    <div>
+                        <h2 class="text-3xl md:text-5xl font-heading font-extrabold text-white">
+                            Profiles
+                        </h2>
+                        <p class="text-base-300 mt-2">Connect via digital coding platforms &amp; channels.</p>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <!-- LeetCode -->
+                        <a href="https://leetcode.com/katepally_nikhil" target="_blank" class="flex items-center gap-3 bg-base-900/50 hover:bg-base-900 border border-base-800 hover:border-accent-500 p-4 rounded-xl transition-all group col-span-1">
+                            <span class="text-base-300 group-hover:text-accent-500 transition-colors">
+                                <!-- LeetCode SVG -->
+                                <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M16.102 17.93l-2.697 2.607c-.466.45-1.245.45-1.71 0l-5.865-5.665a1.162 1.162 0 0 1 0-1.657l5.865-5.664c.465-.45 1.244-.45 1.71 0l2.697 2.606c.466.45.466 1.202 0 1.652L12.03 15.17l4.072 3.931a1.162 1.162 0 0 0 0-1.656l-3.242-3.13c-.466-.45-.466-1.203 0-1.653l4.072-3.931c.466-.45 1.245-.45 1.71 0l2.697 2.607c.466.45.466 1.202 0 1.652l-5.241 5.065 4.072 3.93c.465.45.465 1.203 0 1.653zM1.5 12c0-5.799 4.701-10.5 10.5-10.5h.375c.414 0 .75.336.75.75s-.336.75-.75.75H12c-4.971 0-9 4.029-9 9s4.029 9 9 9h.375c.414 0 .75.336.75.75s-.336.75-.75.75H12c-5.799 0-10.5-4.701-10.5-10.5z"/></svg>
+                            </span>
+                            <div>
+                                <span class="block text-xs text-base-300">LeetCode</span>
+                                <span class="text-sm font-semibold text-white">@katepally_nikhil</span>
+                            </div>
+                        </a>
+
+                        <!-- HackerRank -->
+                        <a href="https://www.hackerrank.com/23r11a6771" target="_blank" class="flex items-center gap-3 bg-base-900/50 hover:bg-base-900 border border-base-800 hover:border-accent-500 p-4 rounded-xl transition-all group col-span-1">
+                            <span class="text-base-300 group-hover:text-accent-500 transition-colors">
+                                <!-- HackerRank SVG -->
+                                <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12 0a12 12 0 1 0 0 24 12 12 0 0 0 0-24zm5.553 16.71a1.2 1.2 0 0 1-1.077.67H7.525a1.2 1.2 0 0 1-1.077-.67L4.12 11.594a1.2 1.2 0 0 1 0-1.186l2.327-4.446a1.2 1.2 0 0 1 1.077-.67h8.95a1.2 1.2 0 0 1 1.078.67l2.327 4.446a1.2 1.2 0 0 1 0 1.186zM8.887 7.747h-1.04v8.506h1.04v-3.418h2.368V16.25h1.04V7.747h-1.04V11.83H8.887zm6.226 5.37h-.824v1.89h1.164v1.243h-2.38v-8.506h1.04v2.79h1.176V11.83h-1.176z"/></svg>
+                            </span>
+                            <div>
+                                <span class="block text-xs text-base-300">HackerRank</span>
+                                <span class="text-sm font-semibold text-white">@23r11a6771</span>
+                            </div>
+                        </a>
+
+                        <!-- Contact Support Details -->
+                        <div class="flex items-center gap-3 bg-base-900/50 border border-base-800 p-4 rounded-xl col-span-2">
+                            <span class="text-accent-500">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                            </span>
+                            <div>
+                                <span class="block text-xs text-base-300">Phone Support</span>
+                                <span class="text-sm font-semibold text-white">+91 63004 29374</span>
+                            </div>
+                        </div>
+
+                        <!-- GitHub -->
+                        <a href="https://github.com/Nikhil-katepally" target="_blank" class="flex items-center gap-3 bg-base-900/50 hover:bg-base-900 border border-base-800 hover:border-accent-500 p-4 rounded-xl transition-all group col-span-2">
+                            <span class="text-base-300 group-hover:text-accent-500 transition-colors">
+                                <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            </span>
+                            <div>
+                                <span class="block text-xs text-base-300">GitHub</span>
+                                <span class="text-sm font-semibold text-white">@Nikhil-katepally</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- Global Footer inside container -->
+            <footer class="absolute bottom-6 left-6 text-xs text-base-500">
+                &copy; 2026 Nikhil Katepally. Built with Tailwind &amp; HTML5 Semantic Principles.
+            </footer>
+        </section>
+
+    </main>
+
+    <script>
+        const container = document.getElementById('scroll-container');
+        const sections = document.querySelectorAll('.section-panel');
+        const navDots = document.querySelectorAll('.nav-dot');
+        let activeIndex = 0;
+
+        // Custom horizontal scroll to page index on desktop
+        function scrollToSection(index) {
+            if (window.innerWidth >= 768) {
+                const targetOffset = index * window.innerWidth;
+                container.scrollTo({
+                    left: targetOffset,
+                    behavior: 'smooth'
+                });
+            } else {
+                const targetSection = document.getElementById(`section-${index}`);
+                targetSection.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+            updateActiveIndicator(index);
+        }
+
+        // Synchronize dots when scrolling manually
+        function updateActiveIndicator(activeIndex) {
+            navDots.forEach((dot, index) => {
+                if (index === activeIndex) {
+                    dot.classList.remove('text-base-300');
+                    dot.classList.add('text-accent-500');
+                } else {
+                    dot.classList.remove('text-accent-500');
+                    dot.classList.add('text-base-300');
+                }
+            });
+        }
+
+        // Setup horizontal tracking
+        container.addEventListener('scroll', () => {
+            if (window.innerWidth >= 768) {
+                const width = window.innerWidth;
+                const scrollLeft = container.scrollLeft;
+                const index = Math.round(scrollLeft / width);
+                if (index !== activeIndex) {
+                    activeIndex = index;
+                    updateActiveIndicator(activeIndex);
+                }
+            }
+        });
+
+        // Track desktop arrows key navigation
+        window.addEventListener('keydown', (e) => {
+            if (window.innerWidth >= 768) {
+                if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                    if (activeIndex < sections.length - 1) {
+                        scrollToSection(activeIndex + 1);
+                    }
+                } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                    if (activeIndex > 0) {
+                        scrollToSection(activeIndex - 1);
+                    }
+                }
+            }
+        });
+
+        // Intersection Observer to synchronize nav indicator on mobile vertical scrolling
+        const observerOptions = {
+            root: null,
+            threshold: 0.4
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && window.innerWidth < 768) {
+                    const id = entry.target.id;
+                    const index = parseInt(id.replace('section-', ''));
+                    updateActiveIndicator(index);
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
